@@ -106,6 +106,62 @@ section{
   margin-left:8px;
 }
 
+/* COMMUNITY UPGRADE */
+.community-btn{
+  position:relative;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+  padding:12px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  color:white;
+  margin:10px;
+  animation:bounce 2s infinite;
+}
+.discord{
+  background:#5865F2;
+  box-shadow:0 0 15px #5865F2,0 0 30px #5865F2;
+}
+.whatsapp{
+  background:#25D366;
+  box-shadow:0 0 15px #25D366,0 0 30px #25D366;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+.community-count{
+  font-size:12px;
+  opacity:0.8;
+}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#111827;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+  animation:fadeIn 1s ease;
+}
+.popup a{
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 12px;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+}
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
 /* FOOTER */
 footer{
   background:#111827;
@@ -138,7 +194,6 @@ footer{
 
   <a href="#services" class="btn">Explore</a>
   <br>
-
   <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank" class="btn executor-btn">
     Open Executor <span class="popular">MOST POPULAR</span>
   </a>
@@ -200,9 +255,17 @@ footer{
 <!-- COMMUNITY -->
 <section id="community">
   <h2>Join Community</h2>
-  <a href="https://discord.gg/YagexWWu6" class="btn">Discord</a>
-  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" class="btn">WhatsApp</a>
-  <a href="https://linktr.ee/VOYTEXCOMUNITY"" class="btn">Linktree</a>
+
+  <a href="https://discord.gg/YagexWWu6" target="_blank" class="community-btn discord">
+    <div>💬 Discord</div>
+    <div class="community-count">12,000+ Members</div>
+  </a>
+
+  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" target="_blank" class="community-btn whatsapp">
+    <div>📱 WhatsApp</div>
+    <div class="community-count">8,000+ Followers</div>
+  </a>
+
 </section>
 
 <!-- ABOUT -->
@@ -218,5 +281,14 @@ footer{
 © 2026 Rey Network
 </footer>
 
+<!-- POPUP -->
+<div class="popup">
+  <b>Join our community 🚀</b>
+  <br>
+  Get updates, news & support.
+  <br>
+  <a href="https://discord.gg/YagexWWu6" target="_blank">Join Now</a>
+</div>
+
 </body>
-    </html>
+</html>
