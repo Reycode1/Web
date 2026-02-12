@@ -56,9 +56,7 @@ section{
   border-radius:12px;
   transition:0.2s;
 }
-.card:hover{
-  transform:translateY(-6px);
-}
+.card:hover{transform:translateY(-6px);}
 
 /* STATUS */
 .status{
@@ -89,6 +87,25 @@ section{
   text-decoration:none;
 }
 
+/* EXECUTOR SPECIAL */
+.executor-btn{
+  background:#22c55e;
+  box-shadow:0 0 15px #22c55e, 0 0 30px #22c55e;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+  100%{transform:scale(1);}
+}
+.popular{
+  background:#ef4444;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:11px;
+  margin-left:8px;
+}
+
 /* FOOTER */
 footer{
   background:#111827;
@@ -110,6 +127,7 @@ footer{
     <a href="#status">Status</a>
     <a href="#community">Community</a>
     <a href="#about">About</a>
+    <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank">Executor</a>
   </div>
 </div>
 
@@ -117,7 +135,13 @@ footer{
 <div class="hero">
   <h1>Next Level Script Ecosystem</h1>
   <p>Professional tools, powerful network & trusted services</p>
+
   <a href="#services" class="btn">Explore</a>
+  <br>
+
+  <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank" class="btn executor-btn">
+    Open Executor <span class="popular">MOST POPULAR</span>
+  </a>
 </div>
 
 <!-- SERVICES -->
@@ -127,6 +151,7 @@ footer{
     <div class="card">
       <h3>Executor System</h3>
       <p>Stable & high performance environment.</p>
+      <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank" class="btn">Launch</a>
     </div>
     <div class="card">
       <h3>Script Hub</h3>
@@ -175,8 +200,9 @@ footer{
 <!-- COMMUNITY -->
 <section id="community">
   <h2>Join Community</h2>
-  <a href="https://discord.gg/yourlink" class="btn">Discord</a>
-  <a href="https://chat.whatsapp.com/yourlink" class="btn">WhatsApp</a>
+  <a href="https://discord.gg/YagexWWu6" class="btn">Discord</a>
+  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" class="btn">WhatsApp</a>
+  <a href="https://linktr.ee/VOYTEXCOMUNITY"" class="btn">Linktree</a>
 </section>
 
 <!-- ABOUT -->
@@ -193,4 +219,4 @@ footer{
 </footer>
 
 </body>
-</html>
+    </html>
