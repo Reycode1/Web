@@ -10,45 +10,23 @@
 body{background:#0b0f17;color:white;scroll-behavior:smooth;}
 
 /* NAV */
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 40px;
-  background:#111827;
-  position:sticky;top:0;z-index:100;
-}
-.nav a{
-  color:white;text-decoration:none;margin-left:18px;font-size:14px;opacity:.8;
-}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:#111827;position:sticky;top:0;z-index:100;}
+.nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px;opacity:.8;}
 .nav a:hover{opacity:1}
 
 /* HERO */
-.hero{
-  padding:120px 20px;
-  text-align:center;
-  background:linear-gradient(120deg,#2563eb,#00c6ff);
-}
+.hero{padding:120px 20px;text-align:center;background:linear-gradient(120deg,#2563eb,#00c6ff);}
 .hero h1{font-size:44px;font-weight:700}
 .hero p{margin-top:10px;opacity:.9}
-.btn{
-  display:inline-block;margin-top:20px;padding:12px 20px;border-radius:10px;background:#0f172a;text-decoration:none;color:white;transition:.2s;
-}
+.btn{display:inline-block;margin-top:20px;padding:12px 20px;border-radius:10px;background:#0f172a;text-decoration:none;color:white;transition:.2s;}
 .btn:hover{transform:scale(1.05)}
 
 /* SECTION */
 section{padding:80px 20px;text-align:center;}
 
 /* GRID */
-.grid{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.card{
-  background:#111827;padding:20px;border-radius:12px;transition:.2s;
-}
+.grid{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card{background:#111827;padding:20px;border-radius:12px;transition:.2s;}
 .card:hover{transform:translateY(-6px);box-shadow:0 0 20px #2563eb;}
 
 /* SEARCH */
@@ -62,18 +40,14 @@ section{padding:80px 20px;text-align:center;}
 .down{background:#ef4444;}
 
 /* COMMUNITY BUTTONS */
-.community-btn{
-  position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:12px 18px;border-radius:12px;text-decoration:none;color:white;margin:10px;animation:bounce 2s infinite;
-}
+.community-btn{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:12px 18px;border-radius:12px;text-decoration:none;color:white;margin:10px;animation:bounce 2s infinite;}
 .discord{background:#5865F2;box-shadow:0 0 15px #5865F2,0 0 30px #5865F2;}
 .whatsapp{background:#25D366;box-shadow:0 0 15px #25D366,0 0 30px #25D366;}
 .executor{background:#22c55e;box-shadow:0 0 15px #22c55e,0 0 30px #22c55e;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
 /* POPUP */
-.popup{
-  position:fixed;bottom:20px;right:20px;background:#111827;padding:15px;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.4);animation:fadeIn 1s ease;
-}
+.popup{position:fixed;bottom:20px;right:20px;background:#111827;padding:15px;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.4);animation:fadeIn 1s ease;}
 .popup a{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:8px;background:#2563eb;color:white;text-decoration:none;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
@@ -82,7 +56,6 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
 </head>
 <body>
 
-<!-- NAV -->
 <div class="nav">
   <b>Voytex Script Store</b>
   <div>
@@ -94,14 +67,12 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <h1>Next Level Script Ecosystem</h1>
   <p>Professional tools, trusted scripts & key system</p>
   <a href="#catalog" class="btn">Explore Scripts</a>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
   <h2>Our Services</h2>
   <div class="grid">
@@ -112,7 +83,6 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
   </div>
 </section>
 
-<!-- CATALOG / SCRIPT -->
 <section id="catalog">
   <h2>Script Catalog</h2>
   <input type="text" id="searchInput" placeholder="Search script...">
@@ -124,7 +94,6 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
   </div>
 </section>
 
-<!-- STATS -->
 <section id="stats">
   <h2>Network Stats</h2>
   <div class="grid">
@@ -134,7 +103,6 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
   </div>
 </section>
 
-<!-- STATUS -->
 <section id="status">
   <h2>Service Status</h2>
   <div class="status">
@@ -144,7 +112,6 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
   </div>
 </section>
 
-<!-- COMMUNITY -->
 <section id="community">
   <h2>Join Community</h2>
   <a href="https://discord.gg/YagexWWu6" target="_blank" class="community-btn discord">💬 Discord<div class="community-count">12,000+ Members</div></a>
@@ -156,14 +123,12 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
 © 2026 Voytex Script Store
 </footer>
 
-<!-- POPUP -->
 <div class="popup">
   <b>Join our community 🚀</b><br>Get updates, news & support.<br>
   <a href="https://discord.gg/YagexWWu6" target="_blank">Join Now</a>
 </div>
 
 <script>
-// SEARCH SCRIPT FUNCTION
 const searchInput = document.getElementById('searchInput');
 const scriptGrid = document.getElementById('scriptGrid');
 searchInput.addEventListener('input', function(){
