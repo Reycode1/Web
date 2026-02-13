@@ -3,28 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rey Network</title>
+<title>Voytex Script Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#0b0f17;color:white}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+body{background:#0b0f17;color:white;scroll-behavior:smooth;}
 
 /* NAV */
 .nav{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:20px 40px;
   background:#111827;
-  position:sticky;
-  top:0;
+  position:sticky;top:0;z-index:100;
 }
 .nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  font-size:14px;
+  color:white;text-decoration:none;margin-left:18px;font-size:14px;opacity:.8;
 }
+.nav a:hover{opacity:1}
 
 /* HERO */
 .hero{
@@ -32,14 +29,15 @@ body{background:#0b0f17;color:white}
   text-align:center;
   background:linear-gradient(120deg,#2563eb,#00c6ff);
 }
-.hero h1{font-size:42px;}
-.hero p{margin-top:10px;opacity:0.9}
+.hero h1{font-size:44px;font-weight:700}
+.hero p{margin-top:10px;opacity:.9}
+.btn{
+  display:inline-block;margin-top:20px;padding:12px 20px;border-radius:10px;background:#0f172a;text-decoration:none;color:white;transition:.2s;
+}
+.btn:hover{transform:scale(1.05)}
 
 /* SECTION */
-section{
-  padding:80px 20px;
-  text-align:center;
-}
+section{padding:80px 20px;text-align:center;}
 
 /* GRID */
 .grid{
@@ -48,197 +46,91 @@ section{
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
-
-/* CARD */
 .card{
-  background:#111827;
-  padding:20px;
-  border-radius:12px;
-  transition:0.2s;
+  background:#111827;padding:20px;border-radius:12px;transition:.2s;
 }
-.card:hover{transform:translateY(-6px);}
+.card:hover{transform:translateY(-6px);box-shadow:0 0 20px #2563eb;}
 
-/* STATUS */
-.status{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-.badge{
-  padding:10px 15px;
-  border-radius:20px;
-  font-size:13px;
-  font-weight:bold;
-}
+/* SEARCH */
+#searchInput{width:100%;max-width:400px;padding:10px;border-radius:8px;margin-bottom:20px;border:none;outline:none;}
+
+/* BADGE STATUS */
+.status{margin-top:20px;display:flex;justify-content:center;flex-wrap:wrap;gap:15px;}
+.badge{padding:10px 15px;border-radius:20px;font-size:13px;font-weight:bold;}
 .online{background:#22c55e;}
 .maintenance{background:#f59e0b;}
 .down{background:#ef4444;}
 
-/* BUTTON */
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 15px;
-  border-radius:10px;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
-}
-
-/* EXECUTOR SPECIAL */
-.executor-btn{
-  background:#22c55e;
-  box-shadow:0 0 15px #22c55e, 0 0 30px #22c55e;
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.08);}
-  100%{transform:scale(1);}
-}
-.popular{
-  background:#ef4444;
-  padding:4px 10px;
-  border-radius:20px;
-  font-size:11px;
-  margin-left:8px;
-}
-
-/* COMMUNITY UPGRADE */
+/* COMMUNITY BUTTONS */
 .community-btn{
-  position:relative;
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  gap:5px;
-  padding:12px 18px;
-  border-radius:12px;
-  text-decoration:none;
-  color:white;
-  margin:10px;
-  animation:bounce 2s infinite;
+  position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:12px 18px;border-radius:12px;text-decoration:none;color:white;margin:10px;animation:bounce 2s infinite;
 }
-.discord{
-  background:#5865F2;
-  box-shadow:0 0 15px #5865F2,0 0 30px #5865F2;
-}
-.whatsapp{
-  background:#25D366;
-  box-shadow:0 0 15px #25D366,0 0 30px #25D366;
-}
-@keyframes bounce{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
-}
-.community-count{
-  font-size:12px;
-  opacity:0.8;
-}
+.discord{background:#5865F2;box-shadow:0 0 15px #5865F2,0 0 30px #5865F2;}
+.whatsapp{background:#25D366;box-shadow:0 0 15px #25D366,0 0 30px #25D366;}
+.executor{background:#22c55e;box-shadow:0 0 15px #22c55e,0 0 30px #22c55e;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
 /* POPUP */
 .popup{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#111827;
-  padding:15px;
-  border-radius:12px;
-  box-shadow:0 0 20px rgba(0,0,0,0.4);
-  animation:fadeIn 1s ease;
+  position:fixed;bottom:20px;right:20px;background:#111827;padding:15px;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.4);animation:fadeIn 1s ease;
 }
-.popup a{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 12px;
-  border-radius:8px;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
-}
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1; transform:translateY(0);}
-}
+.popup a{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:8px;background:#2563eb;color:white;text-decoration:none;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
-/* FOOTER */
-footer{
-  background:#111827;
-  padding:20px;
-  text-align:center;
-  opacity:0.6;
-}
+footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
 </style>
 </head>
-
 <body>
 
 <!-- NAV -->
 <div class="nav">
-  <b>Rey Network</b>
+  <b>Voytex Script Store</b>
   <div>
     <a href="#services">Services</a>
+    <a href="#catalog">Catalog</a>
     <a href="#stats">Stats</a>
     <a href="#status">Status</a>
     <a href="#community">Community</a>
-    <a href="#about">About</a>
-    <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank">Executor</a>
   </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
   <h1>Next Level Script Ecosystem</h1>
-  <p>Professional tools, powerful network & trusted services</p>
-
-  <a href="#services" class="btn">Explore</a>
-  <br>
-  <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank" class="btn executor-btn">
-    Open Executor <span class="popular">MOST POPULAR</span>
-  </a>
+  <p>Professional tools, trusted scripts & key system</p>
+  <a href="#catalog" class="btn">Explore Scripts</a>
 </div>
 
 <!-- SERVICES -->
 <section id="services">
   <h2>Our Services</h2>
   <div class="grid">
-    <div class="card">
-      <h3>Executor System</h3>
-      <p>Stable & high performance environment.</p>
-      <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank" class="btn">Launch</a>
-    </div>
-    <div class="card">
-      <h3>Script Hub</h3>
-      <p>Large collection & fast updates.</p>
-    </div>
-    <div class="card">
-      <h3>Automation</h3>
-      <p>Bot & management systems.</p>
-    </div>
-    <div class="card">
-      <h3>Developer API</h3>
-      <p>Tools for modern creators.</p>
-    </div>
+    <div class="card"><h3>Executor</h3><p>Fast & stable execution.</p></div>
+    <div class="card"><h3>Script Hub</h3><p>Daily updates & clean UI.</p></div>
+    <div class="card"><h3>Automation</h3><p>Bot & management systems.</p></div>
+    <div class="card"><h3>Developer API</h3><p>Powerful tools for creators.</p></div>
+  </div>
+</section>
+
+<!-- CATALOG / SCRIPT -->
+<section id="catalog">
+  <h2>Script Catalog</h2>
+  <input type="text" id="searchInput" placeholder="Search script...">
+  <div class="grid" id="scriptGrid">
+    <div class="card" data-name="Auto Farm"><h3>Auto Farm</h3><p>Game: Brainrot</p><p>Price: $5</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
+    <div class="card" data-name="ESP High"><h3>ESP High</h3><p>Game: Roblox</p><p>Price: $3</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
+    <div class="card" data-name="Auto Survive"><h3>Auto Survive</h3><p>Game: Survival</p><p>Price: $4</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
+    <div class="card" data-name="Coin Collector"><h3>Coin Collector</h3><p>Game: Brainrot</p><p>Price: $2</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
   </div>
 </section>
 
 <!-- STATS -->
 <section id="stats">
-  <h2>Network Statistics</h2>
+  <h2>Network Stats</h2>
   <div class="grid">
-    <div class="card">
-      <h3>50K+</h3>
-      <p>Users</p>
-    </div>
-    <div class="card">
-      <h3>99%</h3>
-      <p>Uptime</p>
-    </div>
-    <div class="card">
-      <h3>24/7</h3>
-      <p>Monitoring</p>
-    </div>
+    <div class="card"><h3>50K+</h3><p>Users</p></div>
+    <div class="card"><h3>99%</h3><p>Uptime</p></div>
+    <div class="card"><h3>24/7</h3><p>Monitoring</p></div>
   </div>
 </section>
 
@@ -246,7 +138,7 @@ footer{
 <section id="status">
   <h2>Service Status</h2>
   <div class="status">
-    <div class="badge online">Executor API - Online</div>
+    <div class="badge online">Executor - Online</div>
     <div class="badge online">Database - Online</div>
     <div class="badge maintenance">Login - Maintenance</div>
   </div>
@@ -255,40 +147,34 @@ footer{
 <!-- COMMUNITY -->
 <section id="community">
   <h2>Join Community</h2>
-
-  <a href="https://discord.gg/YagexWWu6" target="_blank" class="community-btn discord">
-    <div>💬 Discord</div>
-    <div class="community-count">12,000+ Members</div>
-  </a>
-
-  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" target="_blank" class="community-btn whatsapp">
-    <div>📱 WhatsApp</div>
-    <div class="community-count">8,000+ Followers</div>
-  </a>
-
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Us</h2>
-  <p>
-  Rey Network builds modern solutions and powerful tools
-  for thousands of users around the world.
-  </p>
+  <a href="https://discord.gg/YagexWWu6" target="_blank" class="community-btn discord">💬 Discord<div class="community-count">12,000+ Members</div></a>
+  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" target="_blank" class="community-btn whatsapp">📱 WhatsApp<div class="community-count">8,000+ Followers</div></a>
+  <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank" class="community-btn executor">🚀 Executor<div class="community-count">Most Popular</div></a>
 </section>
 
 <footer>
-© 2026 Rey Network
+© 2026 Voytex Script Store
 </footer>
 
 <!-- POPUP -->
 <div class="popup">
-  <b>Join our community 🚀</b>
-  <br>
-  Get updates, news & support.
-  <br>
+  <b>Join our community 🚀</b><br>Get updates, news & support.<br>
   <a href="https://discord.gg/YagexWWu6" target="_blank">Join Now</a>
 </div>
+
+<script>
+// SEARCH SCRIPT FUNCTION
+const searchInput = document.getElementById('searchInput');
+const scriptGrid = document.getElementById('scriptGrid');
+searchInput.addEventListener('input', function(){
+  const query = this.value.toLowerCase();
+  const cards = scriptGrid.getElementsByClassName('card');
+  Array.from(cards).forEach(card=>{
+    const name = card.dataset.name.toLowerCase();
+    card.style.display = name.includes(query) ? 'block' : 'none';
+  });
+});
+</script>
 
 </body>
 </html>
