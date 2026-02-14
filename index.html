@@ -3,140 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voytex Free Script Hub</title>
+<title>Rey Network</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
-body{background:#0b0f17;color:white;scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#0b0f17;color:white}
 
 /* NAV */
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:#111827;position:sticky;top:0;z-index:100;}
-.nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px;opacity:.8;}
-.nav a:hover{opacity:1}
+.nav{
+  display:flex;
+  justify-content:space-between;
+  padding:18px 40px;
+  background:#0f172a;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
 
 /* HERO */
-.hero{padding:120px 20px;text-align:center;background:linear-gradient(120deg,#2563eb,#00c6ff);}
-.hero h1{font-size:44px;font-weight:700}
+.hero{
+  padding:110px 20px;
+  text-align:center;
+  background:linear-gradient(120deg,#2563eb,#00c6ff);
+}
+.hero h1{font-size:40px}
 .hero p{margin-top:10px;opacity:.9}
-.btn{display:inline-block;margin-top:20px;padding:12px 20px;border-radius:10px;background:#0f172a;text-decoration:none;color:white;transition:.2s;}
-.btn:hover{transform:scale(1.05)}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 16px;
+  border-radius:10px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  cursor:pointer;
+}
 
 /* SECTION */
-section{padding:80px 20px;text-align:center;}
+section{padding:80px 20px;text-align:center}
 
 /* GRID */
-.grid{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.card{background:#111827;padding:20px;border-radius:12px;transition:.2s;}
-.card:hover{transform:translateY(-6px);box-shadow:0 0 20px #2563eb;}
+.grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
 
-.copy-btn{margin-top:10px;padding:8px 12px;border-radius:8px;background:#2563eb;color:white;border:none;cursor:pointer;}
+/* CARD */
+.card{
+  background:#111827;
+  padding:20px;
+  border-radius:12px;
+  transition:.2s;
+  position:relative;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 0 20px #2563eb}
 
-/* SEARCH */
-#searchInput{width:100%;max-width:400px;padding:10px;border-radius:8px;margin-bottom:20px;border:none;outline:none;}
+/* BADGE */
+.badge{
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+.online{background:#22c55e}
+.premium{background:gold;color:black}
 
-/* STATUS */
-.status{margin-top:20px;display:flex;justify-content:center;flex-wrap:wrap;gap:15px;}
-.badge{padding:10px 15px;border-radius:20px;font-size:13px;font-weight:bold;}
-.online{background:#22c55e;}
-.maintenance{background:#f59e0b;}
-.down{background:#ef4444;}
+/* LOGIN POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.popup-box{
+  background:#111827;
+  padding:30px;
+  border-radius:12px;
+  width:260px;
+}
 
-/* COMMUNITY */
-.community-btn{display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:12px 18px;border-radius:12px;text-decoration:none;color:white;margin:10px;animation:bounce 2s infinite;}
-.discord{background:#5865F2;box-shadow:0 0 15px #5865F2;}
-.whatsapp{background:#25D366;box-shadow:0 0 15px #25D366;}
-.executor{background:#22c55e;box-shadow:0 0 15px #22c55e;}
-@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-
-.popup{position:fixed;bottom:20px;right:20px;background:#111827;padding:15px;border-radius:12px;}
-.popup a{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:8px;background:#2563eb;color:white;text-decoration:none;}
-
-footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
+/* FOOTER */
+footer{
+  background:#111827;
+  padding:20px;
+  text-align:center;
+  opacity:.6;
+}
 </style>
 </head>
+
 <body>
 
+<!-- NAV -->
 <div class="nav">
-  <b>Voytex Free Script Hub</b>
+  <b>Rey Network</b>
   <div>
-    <a href="#scripts">Scripts</a>
-    <a href="#status">Status</a>
-    <a href="#community">Community</a>
+    <a href="#games">Games</a>
+    <a href="#stats">Stats</a>
+    <a href="#team">Team</a>
+    <a href="#docs">Docs</a>
+    <a onclick="openLogin()">Login</a>
   </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
-  <h1>Best Free Roblox Scripts</h1>
-  <p>Trusted • Updated • Easy to use</p>
-  <a href="#scripts" class="btn">Get Script</a>
+  <h1>Executor Level Platform</h1>
+  <p>Modern ecosystem & automated distribution</p>
+  <a href="#games" class="btn">Browse Scripts</a>
 </div>
 
-<section id="scripts">
-  <h2>Free Scripts</h2>
-  <input type="text" id="searchInput" placeholder="Search script...">
-  <div class="grid" id="scriptGrid">
+<!-- GAMES -->
+<section id="games">
+  <h2>Game Scripts</h2>
+  <div class="grid" id="gameList"></div>
+</section>
 
-    <div class="card" data-name="Auto Farm">
-      <h3>Auto Farm</h3>
-      <p>Game: Brainrot</p>
-      <button class="copy-btn" onclick="copyScript('loadstring(game:HttpGet(\"LINK_SCRIPT\"))()')">Copy</button>
-    </div>
-
-    <div class="card" data-name="ESP">
-      <h3>ESP</h3>
-      <p>Universal</p>
-      <button class="copy-btn" onclick="copyScript('loadstring(game:HttpGet(\"LINK_SCRIPT\"))()')">Copy</button>
-    </div>
-
-    <div class="card" data-name="Auto Survive">
-      <h3>Auto Survive</h3>
-      <p>Survival</p>
-      <button class="copy-btn" onclick="copyScript('loadstring(game:HttpGet(\"LINK_SCRIPT\"))()')">Copy</button>
-    </div>
-
+<!-- STATS -->
+<section id="stats">
+  <h2>Network Stats</h2>
+  <div class="grid">
+    <div class="card"><h3 id="users">0</h3><p>Users</p></div>
+    <div class="card"><h3 id="downloads">0</h3><p>Downloads</p></div>
+    <div class="card"><h3>99%</h3><p>Uptime</p></div>
   </div>
 </section>
 
-<section id="status">
-  <h2>Service Status</h2>
-  <div class="status">
-    <div class="badge online">Hub - Online</div>
-    <div class="badge online">Key System - Online</div>
+<!-- TEAM -->
+<section id="team">
+  <h2>Our Team</h2>
+  <div class="grid">
+    <div class="card"><h3>Rey</h3><p>Founder</p></div>
+    <div class="card"><h3>Developer</h3><p>System Engineer</p></div>
   </div>
 </section>
 
-<section id="community">
-  <h2>Join Community</h2>
-  <a href="https://discord.gg/YagexWWu6" class="community-btn discord">💬 Discord</a>
-  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" class="community-btn whatsapp">📱 WhatsApp</a>
-  <a href="https://linktr.ee/VOYTEXCOMUNITY" class="community-btn executor">🚀 Executor</a>
+<!-- DOCS -->
+<section id="docs">
+  <h2>Documentation</h2>
+  <p>Integration, API usage & tutorials coming soon.</p>
 </section>
 
 <footer>
-© 2026 Voytex Free Script Hub
+© 2026 Rey Network
 </footer>
 
-<div class="popup">
-  <b>Join our community 🚀</b><br>
-  <a href="https://discord.gg/YagexWWu6">Join</a>
+<!-- LOGIN -->
+<div class="popup" id="loginPopup">
+  <div class="popup-box">
+    <h3>Member Login</h3>
+    <input id="name" placeholder="Username"
+      style="width:100%;margin-top:10px;padding:8px;border-radius:6px;border:none">
+    <button class="btn" style="width:100%" onclick="login()">Login</button>
+  </div>
 </div>
 
 <script>
-function copyScript(text){
-  navigator.clipboard.writeText(text);
-  alert("Script copied!");
+/*
+=======================
+FAKE DATABASE (EDIT OWNER)
+=======================
+*/
+const scripts = [
+  {
+    name:"Brainrot Farm",
+    premium:false,
+    github:"https://raw.githubusercontent.com/"
+  },
+  {
+    name:"Auto Win",
+    premium:true,
+    github:"https://raw.githubusercontent.com/"
+  }
+];
+
+/*
+=======================
+LOAD GAMES
+=======================
+*/
+const gameList = document.getElementById("gameList");
+scripts.forEach(s=>{
+  const div = document.createElement("div");
+  div.className="card";
+  div.innerHTML=`
+    ${s.premium?'<div class="badge premium">PREMIUM</div>':''}
+    <h3>${s.name}</h3>
+    <button class="btn" onclick="download('${s.github}',${s.premium})">Get Script</button>
+  `;
+  gameList.appendChild(div);
+});
+
+/*
+=======================
+LOGIN
+=======================
+*/
+function openLogin(){
+  document.getElementById("loginPopup").style.display="flex";
 }
 
-const searchInput=document.getElementById('searchInput');
-const scriptGrid=document.getElementById('scriptGrid');
-searchInput.addEventListener('input',function(){
-  const query=this.value.toLowerCase();
-  const cards=scriptGrid.getElementsByClassName('card');
-  Array.from(cards).forEach(card=>{
-    const name=card.dataset.name.toLowerCase();
-    card.style.display=name.includes(query)?'block':'none';
-  });
-});
+function login(){
+  const name=document.getElementById("name").value;
+  localStorage.setItem("user",name);
+  alert("Welcome "+name);
+  document.getElementById("loginPopup").style.display="none";
+}
+
+/*
+=======================
+DOWNLOAD SYSTEM
+=======================
+*/
+function download(link,premium){
+  const user=localStorage.getItem("user");
+
+  if(!user){
+    alert("Login dulu!");
+    return;
+  }
+
+  if(premium && user!=="owner"){
+    alert("Premium only!");
+    return;
+  }
+
+  localStorage.setItem("downloads",
+    (parseInt(localStorage.getItem("downloads")||0)+1)
+  );
+
+  window.open(link);
+  updateStats();
+}
+
+/*
+=======================
+STATS
+=======================
+*/
+function updateStats(){
+  document.getElementById("downloads").innerText =
+    localStorage.getItem("downloads")||0;
+
+  document.getElementById("users").innerText =
+    localStorage.getItem("user")?1:0;
+}
+updateStats();
 </script>
 
 </body>
