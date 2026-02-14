@@ -1,178 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rey Network</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
-body{background:#0b0f17;color:white}
-
-.nav{display:flex;justify-content:space-between;padding:15px 30px;background:#111}
-.nav button{padding:8px 12px;background:#5865F2;border:none;color:white;border-radius:8px}
-
-.hero{padding:70px;text-align:center;background:linear-gradient(120deg,#5865F2,#00c6ff)}
-
-section{padding:50px;text-align:center}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
-
-.card{background:#111827;padding:15px;border-radius:12px}
-
-.owner{color:#ff4d4d;font-weight:bold}
-.premium{color:gold;font-weight:bold}
-
-.panel{
- position:fixed;
- right:20px;
- bottom:20px;
- background:#111;
- padding:15px;
- border-radius:12px;
- width:250px;
- display:none;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+  background:#0b0f17;
+  color:white;
+  overflow-x:hidden;
 }
-.panel input, .panel select{
- width:100%;
- margin-top:5px;
- padding:5px;
+
+/* LOADING */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#0b0f17;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  font-size:22px;
 }
+
+/* BACKGROUND ANIMATION */
+.bg{
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle,#2563eb33,transparent 40%);
+  animation:move 15s linear infinite;
+  z-index:-1;
+}
+@keyframes move{
+  from{transform:translate(0,0)}
+  to{transform:translate(-25%,-25%)}
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  padding:18px 40px;
+  background:rgba(15,23,42,.8);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+}
+.nav a{color:white;text-decoration:none;margin-left:20px;font-size:14px}
+
+/* HERO */
+.hero{
+  padding:130px 20px;
+  text-align:center;
+}
+.hero h1{
+  font-size:42px;
+  background:linear-gradient(90deg,#60a5fa,#22d3ee);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 18px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#2563eb,#00c6ff);
+  text-decoration:none;
+  color:white;
+  transition:.2s;
+  cursor:pointer;
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 20px #2563eb}
+
+/* SECTION */
+section{padding:80px 20px;text-align:center}
+
+/* GRID */
+.grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:#111827;
+  padding:20px;
+  border-radius:14px;
+  transition:.2s;
+}
+.card:hover{transform:translateY(-5px)}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.popup-box{
+  background:#111827;
+  padding:25px;
+  border-radius:12px;
+  text-align:center;
+}
+footer{padding:25px;text-align:center;opacity:.5}
 </style>
 </head>
 
 <body>
 
+<div id="loader">Loading Rey Network...</div>
+<div class="bg"></div>
+
+<!-- NAV -->
 <div class="nav">
   <b>Rey Network</b>
-  <button onclick="login()">Login Discord</button>
+  <div>
+    <a href="#games">Games</a>
+    <a href="#stats">Stats</a>
+    <a href="#download">Download</a>
+    <a onclick="openPopup()">Community</a>
+  </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
-  <h1>Prototype Platform</h1>
-  <p id="welcome">Not logged in</p>
+  <h1>Next Generation Executor Platform</h1>
+  <p>Modern automation & trusted services</p>
+  <a href="#games" class="btn">Explore</a>
 </div>
 
-<section>
-<h2>Download</h2>
-<div class="grid">
-  <div class="card">
-    Free Script<br><br>
-    <button onclick="download(false)">Download</button>
+<!-- GAMES -->
+<section id="games">
+  <h2>Popular Scripts</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Brainrot Farm</h3>
+      <p>Auto farm & smart system.</p>
+      <a class="btn" href="brainrot.html">Open Page</a>
+    </div>
+    <div class="card">
+      <h3>Auto Win</h3>
+      <p>Performance booster.</p>
+      <a class="btn" href="autowin.html">Open Page</a>
+    </div>
   </div>
-
-  <div class="card">
-    Premium Script<br><br>
-    <button onclick="download(true)">Download</button>
-  </div>
-</div>
 </section>
 
-<section>
-<h2>Activity Log</h2>
-<div id="logs"></div>
+<!-- STATS -->
+<section id="stats">
+  <h2>Network Stats</h2>
+  <div class="grid">
+    <div class="card"><h3 id="u">0</h3><p>Users</p></div>
+    <div class="card"><h3 id="d">0</h3><p>Downloads</p></div>
+    <div class="card"><h3>99%</h3><p>Uptime</p></div>
+  </div>
 </section>
 
-<!-- OWNER PANEL -->
-<div class="panel" id="panel">
-  <h3>Owner Panel</h3>
-  <input id="target" placeholder="Username">
-  <select id="role">
-    <option value="member">Member</option>
-    <option value="premium">Premium</option>
-    <option value="banned">Banned</option>
-  </select>
-  <button onclick="setRole()">Apply</button>
+<!-- CHANGELOG -->
+<section>
+  <h2>Changelog</h2>
+  <div class="card">v2.0 – UI redesign & improvements</div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+  <h2>Download Center</h2>
+  <div class="card">
+    Latest Loader<br>
+    <a class="btn">Download</a>
+  </div>
+</section>
+
+<footer>
+© 2026 Rey Network
+</footer>
+
+<!-- COMMUNITY POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>Join Our Community</h3>
+    <br>
+    <a class="btn" href="https://discord.gg/YagexWWu6">Discord</a>
+    <a class="btn" href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N">WhatsApp</a>
+    <br><br>
+    <a onclick="closePopup()" style="opacity:.6;cursor:pointer">Close</a>
+  </div>
 </div>
 
 <script>
-let user = null;
-let role = "member";
+/* LOADING */
+setTimeout(()=>{
+  document.getElementById("loader").style.display="none";
+},1500);
 
-/*
-=====================
-LOGIN
-=====================
-*/
-function login(){
-  const name = prompt("Masukan nama Discord");
-
-  if(!name) return;
-
-  user = name;
-
-  // AUTO OWNER
-  if(name === "Rey"){
-    role = "owner";
-    document.getElementById("panel").style.display="block";
-  } else {
-    role = localStorage.getItem("role_"+name) || "member";
-  }
-
-  updateUI();
-  log("Login: "+name);
+/* AUTO COUNTER */
+function animate(id,max){
+  let i=0;
+  const el=document.getElementById(id);
+  const x=setInterval(()=>{
+    i+=Math.ceil(max/50);
+    if(i>=max){i=max;clearInterval(x);}
+    el.innerText=i.toLocaleString();
+  },30);
 }
+animate("u",50000);
+animate("d",120000);
 
-/*
-=====================
-UPDATE UI
-=====================
-*/
-function updateUI(){
-  let badge = "";
-  if(role==="owner") badge = " <span class='owner'>(OWNER)</span>";
-  if(role==="premium") badge = " <span class='premium'>(PREMIUM)</span>";
-  if(role==="banned") badge = " (BANNED)";
-
-  document.getElementById("welcome").innerHTML =
-    "Welcome "+user + badge;
+/* POPUP */
+function openPopup(){
+  document.getElementById("popup").style.display="flex";
 }
-
-/*
-=====================
-DOWNLOAD
-=====================
-*/
-function download(premium){
-  if(!user){
-    alert("Login dulu");
-    return;
-  }
-
-  if(role==="banned"){
-    alert("Lu di ban");
-    return;
-  }
-
-  if(premium && role!=="premium" && role!=="owner"){
-    alert("Butuh premium");
-    return;
-  }
-
-  log(user+" download script");
-}
-
-/*
-=====================
-SET ROLE (OWNER)
-=====================
-*/
-function setRole(){
-  const t = document.getElementById("target").value;
-  const r = document.getElementById("role").value;
-
-  localStorage.setItem("role_"+t, r);
-  log("Owner set "+t+" jadi "+r);
-}
-
-/*
-=====================
-LOG
-=====================
-*/
-function log(text){
-  const div = document.getElementById("logs");
-  div.innerHTML += "<p>"+text+"</p>";
+function closePopup(){
+  document.getElementById("popup").style.display="none";
 }
 </script>
 
