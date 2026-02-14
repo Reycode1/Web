@@ -1,262 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rey Network</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 body{background:#0b0f17;color:white}
 
-/* NAV */
-.nav{
-  display:flex;
-  justify-content:space-between;
-  padding:18px 40px;
-  background:#0f172a;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-.nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
+.nav{display:flex;justify-content:space-between;padding:15px 30px;background:#111}
+.nav button{padding:8px 12px;background:#5865F2;border:none;color:white;border-radius:8px}
 
-/* HERO */
-.hero{
-  padding:110px 20px;
-  text-align:center;
-  background:linear-gradient(120deg,#2563eb,#00c6ff);
-}
-.hero h1{font-size:40px}
-.hero p{margin-top:10px;opacity:.9}
+.hero{padding:70px;text-align:center;background:linear-gradient(120deg,#5865F2,#00c6ff)}
 
-/* BUTTON */
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:10px 16px;
-  border-radius:10px;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
-  cursor:pointer;
-}
+section{padding:50px;text-align:center}
 
-/* SECTION */
-section{padding:80px 20px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:20px}
 
-/* GRID */
-.grid{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+.card{background:#111827;padding:15px;border-radius:12px}
 
-/* CARD */
-.card{
-  background:#111827;
-  padding:20px;
-  border-radius:12px;
-  transition:.2s;
-  position:relative;
-}
-.card:hover{transform:translateY(-6px);box-shadow:0 0 20px #2563eb}
+.owner{color:#ff4d4d;font-weight:bold}
+.premium{color:gold;font-weight:bold}
 
-/* BADGE */
-.badge{
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
+.panel{
+ position:fixed;
+ right:20px;
+ bottom:20px;
+ background:#111;
+ padding:15px;
+ border-radius:12px;
+ width:250px;
+ display:none;
 }
-.online{background:#22c55e}
-.premium{background:gold;color:black}
-
-/* LOGIN POPUP */
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-.popup-box{
-  background:#111827;
-  padding:30px;
-  border-radius:12px;
-  width:260px;
-}
-
-/* FOOTER */
-footer{
-  background:#111827;
-  padding:20px;
-  text-align:center;
-  opacity:.6;
+.panel input, .panel select{
+ width:100%;
+ margin-top:5px;
+ padding:5px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <div class="nav">
   <b>Rey Network</b>
-  <div>
-    <a href="#games">Games</a>
-    <a href="#stats">Stats</a>
-    <a href="#team">Team</a>
-    <a href="#docs">Docs</a>
-    <a onclick="openLogin()">Login</a>
-  </div>
+  <button onclick="login()">Login Discord</button>
 </div>
 
-<!-- HERO -->
 <div class="hero">
-  <h1>Executor Level Platform</h1>
-  <p>Modern ecosystem & automated distribution</p>
-  <a href="#games" class="btn">Browse Scripts</a>
+  <h1>Prototype Platform</h1>
+  <p id="welcome">Not logged in</p>
 </div>
 
-<!-- GAMES -->
-<section id="games">
-  <h2>Game Scripts</h2>
-  <div class="grid" id="gameList"></div>
-</section>
-
-<!-- STATS -->
-<section id="stats">
-  <h2>Network Stats</h2>
-  <div class="grid">
-    <div class="card"><h3 id="users">0</h3><p>Users</p></div>
-    <div class="card"><h3 id="downloads">0</h3><p>Downloads</p></div>
-    <div class="card"><h3>99%</h3><p>Uptime</p></div>
+<section>
+<h2>Download</h2>
+<div class="grid">
+  <div class="card">
+    Free Script<br><br>
+    <button onclick="download(false)">Download</button>
   </div>
-</section>
 
-<!-- TEAM -->
-<section id="team">
-  <h2>Our Team</h2>
-  <div class="grid">
-    <div class="card"><h3>Rey</h3><p>Founder</p></div>
-    <div class="card"><h3>Developer</h3><p>System Engineer</p></div>
+  <div class="card">
+    Premium Script<br><br>
+    <button onclick="download(true)">Download</button>
   </div>
+</div>
 </section>
 
-<!-- DOCS -->
-<section id="docs">
-  <h2>Documentation</h2>
-  <p>Integration, API usage & tutorials coming soon.</p>
+<section>
+<h2>Activity Log</h2>
+<div id="logs"></div>
 </section>
 
-<footer>
-© 2026 Rey Network
-</footer>
-
-<!-- LOGIN -->
-<div class="popup" id="loginPopup">
-  <div class="popup-box">
-    <h3>Member Login</h3>
-    <input id="name" placeholder="Username"
-      style="width:100%;margin-top:10px;padding:8px;border-radius:6px;border:none">
-    <button class="btn" style="width:100%" onclick="login()">Login</button>
-  </div>
+<!-- OWNER PANEL -->
+<div class="panel" id="panel">
+  <h3>Owner Panel</h3>
+  <input id="target" placeholder="Username">
+  <select id="role">
+    <option value="member">Member</option>
+    <option value="premium">Premium</option>
+    <option value="banned">Banned</option>
+  </select>
+  <button onclick="setRole()">Apply</button>
 </div>
 
 <script>
-/*
-=======================
-FAKE DATABASE (EDIT OWNER)
-=======================
-*/
-const scripts = [
-  {
-    name:"Brainrot Farm",
-    premium:false,
-    github:"https://raw.githubusercontent.com/"
-  },
-  {
-    name:"Auto Win",
-    premium:true,
-    github:"https://raw.githubusercontent.com/"
-  }
-];
+let user = null;
+let role = "member";
 
 /*
-=======================
-LOAD GAMES
-=======================
-*/
-const gameList = document.getElementById("gameList");
-scripts.forEach(s=>{
-  const div = document.createElement("div");
-  div.className="card";
-  div.innerHTML=`
-    ${s.premium?'<div class="badge premium">PREMIUM</div>':''}
-    <h3>${s.name}</h3>
-    <button class="btn" onclick="download('${s.github}',${s.premium})">Get Script</button>
-  `;
-  gameList.appendChild(div);
-});
-
-/*
-=======================
+=====================
 LOGIN
-=======================
+=====================
 */
-function openLogin(){
-  document.getElementById("loginPopup").style.display="flex";
-}
-
 function login(){
-  const name=document.getElementById("name").value;
-  localStorage.setItem("user",name);
-  alert("Welcome "+name);
-  document.getElementById("loginPopup").style.display="none";
+  const name = prompt("Masukan nama Discord");
+
+  if(!name) return;
+
+  user = name;
+
+  // AUTO OWNER
+  if(name === "Rey"){
+    role = "owner";
+    document.getElementById("panel").style.display="block";
+  } else {
+    role = localStorage.getItem("role_"+name) || "member";
+  }
+
+  updateUI();
+  log("Login: "+name);
 }
 
 /*
-=======================
-DOWNLOAD SYSTEM
-=======================
+=====================
+UPDATE UI
+=====================
 */
-function download(link,premium){
-  const user=localStorage.getItem("user");
+function updateUI(){
+  let badge = "";
+  if(role==="owner") badge = " <span class='owner'>(OWNER)</span>";
+  if(role==="premium") badge = " <span class='premium'>(PREMIUM)</span>";
+  if(role==="banned") badge = " (BANNED)";
 
+  document.getElementById("welcome").innerHTML =
+    "Welcome "+user + badge;
+}
+
+/*
+=====================
+DOWNLOAD
+=====================
+*/
+function download(premium){
   if(!user){
-    alert("Login dulu!");
+    alert("Login dulu");
     return;
   }
 
-  if(premium && user!=="owner"){
-    alert("Premium only!");
+  if(role==="banned"){
+    alert("Lu di ban");
     return;
   }
 
-  localStorage.setItem("downloads",
-    (parseInt(localStorage.getItem("downloads")||0)+1)
-  );
+  if(premium && role!=="premium" && role!=="owner"){
+    alert("Butuh premium");
+    return;
+  }
 
-  window.open(link);
-  updateStats();
+  log(user+" download script");
 }
 
 /*
-=======================
-STATS
-=======================
+=====================
+SET ROLE (OWNER)
+=====================
 */
-function updateStats(){
-  document.getElementById("downloads").innerText =
-    localStorage.getItem("downloads")||0;
+function setRole(){
+  const t = document.getElementById("target").value;
+  const r = document.getElementById("role").value;
 
-  document.getElementById("users").innerText =
-    localStorage.getItem("user")?1:0;
+  localStorage.setItem("role_"+t, r);
+  log("Owner set "+t+" jadi "+r);
 }
-updateStats();
+
+/*
+=====================
+LOG
+=====================
+*/
+function log(text){
+  const div = document.getElementById("logs");
+  div.innerHTML += "<p>"+text+"</p>";
+}
 </script>
 
 </body>
