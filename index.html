@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voytex Script Store</title>
+<title>Voytex Free Script Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
@@ -29,27 +29,27 @@ section{padding:80px 20px;text-align:center;}
 .card{background:#111827;padding:20px;border-radius:12px;transition:.2s;}
 .card:hover{transform:translateY(-6px);box-shadow:0 0 20px #2563eb;}
 
+.copy-btn{margin-top:10px;padding:8px 12px;border-radius:8px;background:#2563eb;color:white;border:none;cursor:pointer;}
+
 /* SEARCH */
 #searchInput{width:100%;max-width:400px;padding:10px;border-radius:8px;margin-bottom:20px;border:none;outline:none;}
 
-/* BADGE STATUS */
+/* STATUS */
 .status{margin-top:20px;display:flex;justify-content:center;flex-wrap:wrap;gap:15px;}
 .badge{padding:10px 15px;border-radius:20px;font-size:13px;font-weight:bold;}
 .online{background:#22c55e;}
 .maintenance{background:#f59e0b;}
 .down{background:#ef4444;}
 
-/* COMMUNITY BUTTONS */
-.community-btn{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:12px 18px;border-radius:12px;text-decoration:none;color:white;margin:10px;animation:bounce 2s infinite;}
-.discord{background:#5865F2;box-shadow:0 0 15px #5865F2,0 0 30px #5865F2;}
-.whatsapp{background:#25D366;box-shadow:0 0 15px #25D366,0 0 30px #25D366;}
-.executor{background:#22c55e;box-shadow:0 0 15px #22c55e,0 0 30px #22c55e;}
+/* COMMUNITY */
+.community-btn{display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:12px 18px;border-radius:12px;text-decoration:none;color:white;margin:10px;animation:bounce 2s infinite;}
+.discord{background:#5865F2;box-shadow:0 0 15px #5865F2;}
+.whatsapp{background:#25D366;box-shadow:0 0 15px #25D366;}
+.executor{background:#22c55e;box-shadow:0 0 15px #22c55e;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
-/* POPUP */
-.popup{position:fixed;bottom:20px;right:20px;background:#111827;padding:15px;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.4);animation:fadeIn 1s ease;}
+.popup{position:fixed;bottom:20px;right:20px;background:#111827;padding:15px;border-radius:12px;}
 .popup a{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:8px;background:#2563eb;color:white;text-decoration:none;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
 footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
 </style>
@@ -57,86 +57,84 @@ footer{background:#111827;padding:20px;text-align:center;opacity:.6;}
 <body>
 
 <div class="nav">
-  <b>Voytex Script Store</b>
+  <b>Voytex Free Script Hub</b>
   <div>
-    <a href="#services">Services</a>
-    <a href="#catalog">Catalog</a>
-    <a href="#stats">Stats</a>
+    <a href="#scripts">Scripts</a>
     <a href="#status">Status</a>
     <a href="#community">Community</a>
   </div>
 </div>
 
 <div class="hero">
-  <h1>Next Level Script Ecosystem</h1>
-  <p>Professional tools, trusted scripts & key system</p>
-  <a href="#catalog" class="btn">Explore Scripts</a>
+  <h1>Best Free Roblox Scripts</h1>
+  <p>Trusted • Updated • Easy to use</p>
+  <a href="#scripts" class="btn">Get Script</a>
 </div>
 
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card"><h3>Executor</h3><p>Fast & stable execution.</p></div>
-    <div class="card"><h3>Script Hub</h3><p>Daily updates & clean UI.</p></div>
-    <div class="card"><h3>Automation</h3><p>Bot & management systems.</p></div>
-    <div class="card"><h3>Developer API</h3><p>Powerful tools for creators.</p></div>
-  </div>
-</section>
-
-<section id="catalog">
-  <h2>Script Catalog</h2>
+<section id="scripts">
+  <h2>Free Scripts</h2>
   <input type="text" id="searchInput" placeholder="Search script...">
   <div class="grid" id="scriptGrid">
-    <div class="card" data-name="Auto Farm"><h3>Auto Farm</h3><p>Game: Brainrot</p><p>Price: $5</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
-    <div class="card" data-name="ESP High"><h3>ESP High</h3><p>Game: Roblox</p><p>Price: $3</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
-    <div class="card" data-name="Auto Survive"><h3>Auto Survive</h3><p>Game: Survival</p><p>Price: $4</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
-    <div class="card" data-name="Coin Collector"><h3>Coin Collector</h3><p>Game: Brainrot</p><p>Price: $2</p><a href="https://wa.me/628xxxxxxx" class="btn">Buy Now</a></div>
-  </div>
-</section>
 
-<section id="stats">
-  <h2>Network Stats</h2>
-  <div class="grid">
-    <div class="card"><h3>50K+</h3><p>Users</p></div>
-    <div class="card"><h3>99%</h3><p>Uptime</p></div>
-    <div class="card"><h3>24/7</h3><p>Monitoring</p></div>
+    <div class="card" data-name="Auto Farm">
+      <h3>Auto Farm</h3>
+      <p>Game: Brainrot</p>
+      <button class="copy-btn" onclick="copyScript('loadstring(game:HttpGet(\"LINK_SCRIPT\"))()')">Copy</button>
+    </div>
+
+    <div class="card" data-name="ESP">
+      <h3>ESP</h3>
+      <p>Universal</p>
+      <button class="copy-btn" onclick="copyScript('loadstring(game:HttpGet(\"LINK_SCRIPT\"))()')">Copy</button>
+    </div>
+
+    <div class="card" data-name="Auto Survive">
+      <h3>Auto Survive</h3>
+      <p>Survival</p>
+      <button class="copy-btn" onclick="copyScript('loadstring(game:HttpGet(\"LINK_SCRIPT\"))()')">Copy</button>
+    </div>
+
   </div>
 </section>
 
 <section id="status">
   <h2>Service Status</h2>
   <div class="status">
-    <div class="badge online">Executor - Online</div>
-    <div class="badge online">Database - Online</div>
-    <div class="badge maintenance">Login - Maintenance</div>
+    <div class="badge online">Hub - Online</div>
+    <div class="badge online">Key System - Online</div>
   </div>
 </section>
 
 <section id="community">
   <h2>Join Community</h2>
-  <a href="https://discord.gg/YagexWWu6" target="_blank" class="community-btn discord">💬 Discord<div class="community-count">12,000+ Members</div></a>
-  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" target="_blank" class="community-btn whatsapp">📱 WhatsApp<div class="community-count">8,000+ Followers</div></a>
-  <a href="https://linktr.ee/VOYTEXCOMUNITY" target="_blank" class="community-btn executor">🚀 Executor<div class="community-count">Most Popular</div></a>
+  <a href="https://discord.gg/YagexWWu6" class="community-btn discord">💬 Discord</a>
+  <a href="https://whatsapp.com/channel/0029VbBk5jlK0IBj5AQO4M2N" class="community-btn whatsapp">📱 WhatsApp</a>
+  <a href="https://linktr.ee/VOYTEXCOMUNITY" class="community-btn executor">🚀 Executor</a>
 </section>
 
 <footer>
-© 2026 Voytex Script Store
+© 2026 Voytex Free Script Hub
 </footer>
 
 <div class="popup">
-  <b>Join our community 🚀</b><br>Get updates, news & support.<br>
-  <a href="https://discord.gg/YagexWWu6" target="_blank">Join Now</a>
+  <b>Join our community 🚀</b><br>
+  <a href="https://discord.gg/YagexWWu6">Join</a>
 </div>
 
 <script>
-const searchInput = document.getElementById('searchInput');
-const scriptGrid = document.getElementById('scriptGrid');
-searchInput.addEventListener('input', function(){
-  const query = this.value.toLowerCase();
-  const cards = scriptGrid.getElementsByClassName('card');
+function copyScript(text){
+  navigator.clipboard.writeText(text);
+  alert("Script copied!");
+}
+
+const searchInput=document.getElementById('searchInput');
+const scriptGrid=document.getElementById('scriptGrid');
+searchInput.addEventListener('input',function(){
+  const query=this.value.toLowerCase();
+  const cards=scriptGrid.getElementsByClassName('card');
   Array.from(cards).forEach(card=>{
-    const name = card.dataset.name.toLowerCase();
-    card.style.display = name.includes(query) ? 'block' : 'none';
+    const name=card.dataset.name.toLowerCase();
+    card.style.display=name.includes(query)?'block':'none';
   });
 });
 </script>
